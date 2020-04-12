@@ -9,13 +9,13 @@ Used data from KEGG to construct a stoichiometric matrix S for the urea cycle.
     * Exchange fluxes: b1 = carbamoyl phosphate in; b2 = asparate in; b3 = fumarate out; b4 = urea out; b5 = ATP in; b6 = AMP out; b7 = diphosphate out; b8 = NADPH in; b9 = NADP out; b10 = O2 in; b11 = H+ in; b12 = NO out; b13 = phosphate out; b14(+) = H2O in; b14(-) = H20 out
 
 ## Part b
-Created an atom matrix A = [M x A] where A = C,H,N,N,P,S. See file: [A_array.xlsx](https://github.com/erp98/CHEME-5440-PS3/blob/master/PS3/A_Array.xlsx) or [A_array.csv](https://github.com/erp98/CHEME-5440-PS3/blob/master/PS3/A_Array.csv) for atom matrix
+Created an atom matrix A = [M x A] where A = C,H,N,O,P,S. See file: [A_array.xlsx](https://github.com/erp98/CHEME-5440-PS3/blob/master/PS3/A_Array.xlsx) or [A_array.csv](https://github.com/erp98/CHEME-5440-PS3/blob/master/PS3/A_Array.csv) for atom matrix
 
 To determine if the urea cycle reconstruction is elementally balanced, calculate A^T*S. If the reaction flux columns are all zero vectors, then the reconstruction is elementally balanced. If they are not, then one likely forgot some species exchange fluxes.
 
 See [PS3.jl](https://github.com/erp98/CHEME-5440-PS3/blob/master/PS3/PS3.jl) for elemental balance calculation. If reconstruction is elementally balanced, PS3.jl will print "balanced" as an output. If reconstruction is not balanced, PS3.jl will print "unbalanced.
 
-Reconstruction is elementally balanced with respect to C,H,N,P, and S.
+Reconstruction is elementally balanced with respect to C,H,N,O,P, and S.
     
 ## Part c
 Used Flux Balance Analysis to calculate the maximum rate of urea production. Solved FBA problem using linear program GLPK solve [Flux.jl](https://github.com/erp98/CHEME-5440-PS3/blob/master/PS3/Flux.jl). Flux.jl source: Prof. Varner.
